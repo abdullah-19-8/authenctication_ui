@@ -6,12 +6,14 @@ class MyTextField extends StatefulWidget {
   final String hintText;
   bool obscure;
   bool isPassword = false;
+  TextInputType? keyboardType;
   MyTextField({
     Key? key,
     required this.labelText,
     required this.hintText,
     this.obscure = false,
     this.isPassword = false,
+    this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -19,14 +21,12 @@ class MyTextField extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<MyTextField> {
-  TextInputType? keyboardType;
-
   @override
   Widget build(BuildContext context) {
     return TextField(
       style: const TextStyle(color: Colors.white),
       obscureText: widget.obscure,
-      keyboardType: keyboardType,
+      keyboardType: widget.keyboardType,
       decoration: InputDecoration(
         labelText: widget.labelText,
         labelStyle: const TextStyle(color: Colors.white),

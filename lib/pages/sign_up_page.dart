@@ -1,16 +1,16 @@
+import 'package:auth_ui/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 import '../helper.dart';
-import 'sign_up_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,34 +36,41 @@ class _LoginPageState extends State<LoginPage> {
                     'https://www.closetag.com/images/paths/1631452940_41241.png'),
               ),
               const Text(
-                'Welcome Back',
+                'Create Account',
                 style: TextStyle(fontSize: 35, color: Colors.white),
               ),
               const SizedBox(height: 50),
-              //email field.
+              MyTextField(
+                labelText: "First Name",
+                hintText: "John",
+              ),
+              const SizedBox(height: 35),
+              MyTextField(
+                labelText: "Last Name",
+                hintText: "Due",
+              ),
+              const SizedBox(height: 35),
               MyTextField(
                 labelText: "Phone number",
                 hintText: "+964 750 000 0000",
+                keyboardType: TextInputType.phone,
               ),
               const SizedBox(height: 35),
-              //password field.
               MyTextField(
-                hintText: 'Your Password',
                 labelText: 'Password',
+                hintText: 'Your Password',
+                obscure: true,
+                isPassword: true,
+              ),
+              const SizedBox(height: 35),
+              MyTextField(
+                labelText: 'Confirm Password',
+                hintText: 'Confirm Your Password',
                 obscure: true,
                 isPassword: true,
               ),
               const SizedBox(
                 height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
-                  Text(
-                    'Forget Password ?',
-                    style: TextStyle(color: Colors.blue),
-                  )
-                ],
               ),
               const SizedBox(
                 height: 20,
@@ -77,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextButton(
                   onPressed: () {},
                   child: const Text(
-                    'Login',
+                    'Sign Up',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -86,20 +93,21 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'New user?',
+                    'Already have an account ?',
                     style: TextStyle(color: Colors.white),
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SignUpPage(),
+                          builder: (context) => const LoginPage(),
                         ),
+                        (route) => false,
                       );
                     },
                     child: const Text(
-                      'Signup',
+                      'login',
                       style: TextStyle(color: Colors.blue),
                     ),
                   )
