@@ -17,9 +17,7 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(
-              'https://coloredbrain.com/wp-content/uploads/2016/07/login-background.jpg',
-            ),
+            image: AssetImage('assets/login-background.jpg'),
             colorFilter: ColorFilter.srgbToLinearGamma(),
             fit: BoxFit.cover,
           ),
@@ -29,11 +27,14 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 150,
                 width: 150,
-                child: Image.network(
-                    'https://www.closetag.com/images/paths/1631452940_41241.png'),
+                child: Image(
+                  image: AssetImage(
+                    'assets/bird.png',
+                  ),
+                ),
               ),
               const Text(
                 'Create Account',
