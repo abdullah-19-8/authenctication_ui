@@ -30,9 +30,12 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(
                 height: 150,
                 width: 150,
-                child: Image(
-                  image: AssetImage(
-                    'assets/bird.png',
+                child: Hero(
+                  tag: 'bird',
+                  child: Image(
+                    image: AssetImage(
+                      'assets/bird.png',
+                    ),
                   ),
                 ),
               ),
